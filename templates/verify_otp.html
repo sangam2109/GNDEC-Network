@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg border-0">
+                <div class="card-body p-5">
+                    <h2 class="text-center mb-4">Verify Your Email</h2>
+                    
+                    <p class="text-center text-muted mb-4">
+                        We've sent an OTP to your email address:<br>
+                        <strong>{{ session['registration_email'] }}</strong>
+                    </p>
+
+                    <form method="POST">
+                        <div class="mb-4">
+                            <label for="otp" class="form-label">Enter OTP</label>
+                            <input type="text" 
+                                   class="form-control form-control-lg text-center" 
+                                   id="otp" 
+                                   name="otp" 
+                                   maxlength="6" 
+                                   required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 py-2">
+                            Verify OTP
+                        </button>
+                    </form>
+
+                    <div class="text-center mt-4">
+                        <p class="mb-0">Didn't receive the code?</p>
+                        <a href="{{ url_for('register') }}" class="text-primary">Resend OTP</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.form-control-lg {
+    font-size: 1.5rem;
+    letter-spacing: 0.5rem;
+}
+
+/* Optional: Style for OTP input */
+#otp::-webkit-outer-spin-button,
+#otp::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+</style>
+{% endblock %} 

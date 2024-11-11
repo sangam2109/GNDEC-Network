@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <!-- Page Header -->
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold" style="color: #1a365d;">Meet Our Developer</h1>
+        <p class="lead text-muted">The mind behind GNDEC Network</p>
+    </div>
+
+    <!-- Developer Card -->
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card border-0 shadow-lg developer-card">
+                <div class="row g-0">
+                    <!-- Image Column -->
+                    <div class="col-md-5 position-relative">
+                        <img src="{{ url_for('static', filename='images/adarsh.jpg') }}"
+                             class="img-fluid h-100 w-100 object-fit-cover"
+                             alt="Adarsh Mishra">
+                        <div class="overlay"></div>
+                    </div>
+                    
+                    <!-- Content Column -->
+                    <div class="col-md-7">
+                        <div class="card-body p-4 p-md-5">
+                            <h2 class="card-title h3 mb-3 fw-bold">Adarsh Mishra</h2>
+                            <p class="card-subtitle text-primary mb-3">Full Stack Developer</p>
+                            
+                            <p class="card-text lead mb-4">
+                                Adarsh is a passionate developer with expertise in full stack development. 
+                                Specializing in Python, JavaScript, and modern web technologies.
+                            </p>
+                            
+                            <!-- Skills Section -->
+                            <div class="skills-section mb-4">
+                                <h5 class="fw-bold mb-3">Technical Skills</h5>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge bg-light text-dark">Python</span>
+                                    <span class="badge bg-light text-dark">JavaScript</span>
+                                    <span class="badge bg-light text-dark">Flask</span>
+                                    <span class="badge bg-light text-dark">React</span>
+                                    <span class="badge bg-light text-dark">SQL</span>
+                                    <span class="badge bg-light text-dark">Git</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Social Links -->
+                            <div class="social-links">
+                                <h5 class="fw-bold mb-3">Connect With Me</h5>
+                                <div class="d-flex gap-3">
+                                    <a href="https://github.com/adarshmishra26" 
+                                       class="social-link"
+                                       target="_blank" 
+                                       rel="noopener noreferrer">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="https://linkedin.com/in/adarshmishra26" 
+                                       class="social-link"
+                                       target="_blank" 
+                                       rel="noopener noreferrer">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="mailto:adarshmishra2608@gmail.com" 
+                                       class="social-link">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.developer-card {
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.developer-card:hover {
+    transform: translateY(-5px);
+}
+
+.object-fit-cover {
+    object-fit: cover;
+    border-radius: 15px 0 0 15px;
+    height: 100%;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(26,54,93,0) 0%, rgba(26,54,93,0.1) 100%);
+    border-radius: 15px 0 0 15px;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f8f9fa;
+    color: #1a365d;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    background-color: #1a365d;
+    color: white;
+    box-shadow: 0 4px 12px rgba(26, 54, 93, 0.15);
+}
+
+.badge {
+    padding: 8px 15px;
+    font-weight: 500;
+    border-radius: 20px;
+}
+
+.lead {
+    color: #4a5568;
+    line-height: 1.7;
+}
+
+@media (max-width: 767.98px) {
+    .object-fit-cover {
+        border-radius: 15px 15px 0 0;
+        max-height: 300px;
+    }
+    
+    .overlay {
+        border-radius: 15px 15px 0 0;
+    }
+    
+    .card-body {
+        padding: 2rem !important;
+    }
+}
+</style>
+{% endblock %} 

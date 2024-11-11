@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Friend Requests</h2>
+    
+    {# Debug info #}
+    {% if current_user.is_authenticated %}
+        <div class="d-none">
+            <p>User ID: {{ current_user.id }}</p>
+            <p>Request Count: {{ requests.count() if requests else 0 }}</p>
+        </div>
+    {% endif %}
+    
+    {% if requests and requests.count() > 0 %}
+        {% for request in requests %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {% if request.from_user %}
+                            {{ request.from_user.name }}
+                        {% else %}
+                            Unknown User
+                        {% endif %}
+                    </h5>
+                    <p class="card-text">Sent: {{ request.timestamp.strftime('%Y-%m-%d %H:%M') }}</p>
+                    <form action="{{ url_for('accept_friend_request', request_id=request.id) }}" method="POST" class="d-inline">
+                        <button type="submit" class="btn btn-success">Accept</button>
+                    </form>
+                    <form action="{{ url_for('reject_friend_request', request_id=request.id) }}" method="POST" class="d-inline">
+                        <button type="submit" class="btn btn-danger">Reject</button>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="alert alert-info">
+            No pending friend requests
+        </div>
+    {% endif %}
+</div>
+{% endblock %} 
